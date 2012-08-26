@@ -1,9 +1,9 @@
 #import "NDAppDelegate.h"
 
 static NSString *const kSongObjectType = @"net.zonble.songobejct";
-static NSString *const kSongNameType = @"net.zonble.songname";
-static NSString *const kArtistNameType = @"net.zonble.artistname";
-static NSString *const kAlbumNameType = @"net.zonble.albumname";
+static NSString *const kSongNameType = @"song_name";
+static NSString *const kArtistNameType = @"artist_name";
+static NSString *const kAlbumNameType = @"album_name";
 
 @implementation NDAppDelegate
 
@@ -25,6 +25,8 @@ static NSString *const kAlbumNameType = @"net.zonble.albumname";
 	[[self.webView mainFrame] loadRequest:request];
 }
 
+#pragma mark WebView UI Delegate
+
 - (NSUInteger)webView:(WebView *)sender dragDestinationActionMaskForDraggingInfo:(id <NSDraggingInfo>)draggingInfo
 {
     return WebDragDestinationActionAny;
@@ -32,10 +34,9 @@ static NSString *const kAlbumNameType = @"net.zonble.albumname";
 
 - (void)webView:(WebView *)webView willPerformDragDestinationAction:(WebDragDestinationAction)action forDraggingInfo:(id <NSDraggingInfo>)draggingInfo
 {
-//	NSLog(@"%s", __PRETTY_FUNCTION__);
-//	NSLog(@"WebDragDestinationAction:%d", action);
-//	NSLog(@"draggingInfo:%@", draggingInfo);
 }
+
+#pragma mark TableView Data Source
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView
 {
@@ -65,18 +66,16 @@ static NSString *const kAlbumNameType = @"net.zonble.albumname";
 	else if ([[tableColumn identifier] isEqualToString:@"album_name"]) {
 		return d[kAlbumNameType];
 	}
-	
 	return nil;
 }
 - (BOOL)tableView:(NSTableView *)tableView writeRowsWithIndexes:(NSIndexSet *)rowIndexes toPasteboard:(NSPasteboard *)pboard
 {
 	NSInteger row = [rowIndexes lastIndex];	
 	NSDictionary *d = songs[row];
-	[pboard declareTypes:@[kSongObjectType, kSongNameType, kArtistNameType, kAlbumNameType, NSStringPboardType] owner:self];
-	[pboard setString:@"song" forType:kSongObjectType];
-	[pboard setString:d[kSongNameType] forType:kSongNameType];
-	[pboard setString:d[kArtistNameType] forType:kArtistNameType];
-	[pboard setString:d[kAlbumNameType] forType:kAlbumNameType];
+	[pboard declareTypes:@[kSongObjectType, NSStringPboardType] owner:self];
+	NSData *data = [NSJSONSerialization dataWithJSONObject:d options:NSJSONWritingPrettyPrinted error:nil];
+	NSString *JSONString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+	[pboard setString:JSONString forType:kSongObjectType];
 	[pboard setString:[NSString stringWithFormat:@"\nSong: %@\nArtist: %@\nAlbum: %@", d[kSongNameType], d[kArtistNameType], d[kAlbumNameType]] forType:NSStringPboardType];
 	return YES;
 }
@@ -88,12 +87,7 @@ static NSString *const kAlbumNameType = @"net.zonble.albumname";
 	NSPasteboard *pasteBoard = [info draggingPasteboard];
 	NSData *data = [pasteBoard dataForType:kSongObjectType];
 	if (data) {
-		NSString *songName = [pasteBoard stringForType:kSongNameType];
-		NSString *artistName = [pasteBoard stringForType:kArtistNameType];
-		NSString *albumName = [pasteBoard stringForType:kAlbumNameType];
-		if ([songName length] && [artistName length] && [albumName length]) {
-			return NSDragOperationCopy;
-		}
+		return NSDragOperationCopy;
 	}
 	return NSDragOperationNone;
 }
@@ -105,25 +99,19 @@ static NSString *const kAlbumNameType = @"net.zonble.albumname";
 	
 	NSPasteboard *pasteBoard = [info draggingPasteboard];
 	NSData *data = [pasteBoard dataForType:kSongObjectType];
-	if (data) {
-		NSString *songName = [pasteBoard stringForType:kSongNameType];
-		NSString *artistName = [pasteBoard stringForType:kArtistNameType];
-		NSString *albumName = [pasteBoard stringForType:kAlbumNameType];
-		if ([songName length] && [artistName length] && [albumName length]) {
-			NSDictionary *d = @{
-				kSongNameType:songName,
-				kArtistNameType:artistName,
-				kAlbumNameType:albumName
-			};
-			if (row < [songs count]) {
-				[songs insertObject:d atIndex:row];
-			}
-			else {
-				[songs addObject:d];
-			}
-			[tableView reloadData];
-			return YES;
+	if (data) {		
+		NSDictionary *d = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+		if (!d) {
+			return NO;
 		}
+		if (row < [songs count]) {
+			[songs insertObject:d atIndex:row];
+		}
+		else {
+			[songs addObject:d];
+		}
+		[tableView reloadData];
+		return YES;
 	}
 	return NO;
 }
