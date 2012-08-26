@@ -41,6 +41,18 @@ static NSString *const kAlbumNameType = @"net.zonble.albumname";
 {
 	return [songs count];
 }
+
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
+{
+	if ([cell respondsToSelector:@selector(setFont:)]) {
+		[cell setFont:[NSFont systemFontOfSize:18.0]];
+	}
+}
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row
+{
+	return 25.0;
+}
+
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row
 {
 	NSDictionary *d = songs[row];
@@ -60,10 +72,12 @@ static NSString *const kAlbumNameType = @"net.zonble.albumname";
 {
 	NSInteger row = [rowIndexes lastIndex];	
 	NSDictionary *d = songs[row];
+	[pboard declareTypes:@[kSongObjectType, kSongNameType, kArtistNameType, kAlbumNameType, NSStringPboardType] owner:self];
 	[pboard setString:@"song" forType:kSongObjectType];
 	[pboard setString:d[kSongNameType] forType:kSongNameType];
 	[pboard setString:d[kArtistNameType] forType:kArtistNameType];
 	[pboard setString:d[kAlbumNameType] forType:kAlbumNameType];
+	[pboard setString:[NSString stringWithFormat:@"\nSong: %@\nArtist: %@\nAlbum: %@", d[kSongNameType], d[kArtistNameType], d[kAlbumNameType]] forType:NSStringPboardType];
 	return YES;
 }
 - (NSDragOperation)tableView:(NSTableView *)tableView validateDrop:(id <NSDraggingInfo>)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)dropOperation

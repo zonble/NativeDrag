@@ -20,6 +20,8 @@
 				dataTransfer.setData(window.artistName, artistName);
 				dataTransfer.setData(window.albumName, albumName);
 				dataTransfer.setData(window.songObejctType, "song");
+				var textPresnetation = "\nSong: " + songName + "\nArtist: " + artistName + "\nAlbum: " + albumName;
+				dataTransfer.setData("public.utf8-plain-text", textPresnetation);
 				return true;
 			};
 			handler.drag = function() {
