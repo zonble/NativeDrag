@@ -1,0 +1,316 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D424BDA715EA2FAC0045DD38 /* test.html in Resources */ = {isa = PBXBuildFile; fileRef = D424BDA615EA2FAC0045DD38 /* test.html */; };
+		D424BDAA15EA2FCE0045DD38 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D424BDA915EA2FCE0045DD38 /* WebKit.framework */; };
+		D424BDC015EA49700045DD38 /* NDWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = D424BDBF15EA49700045DD38 /* NDWebView.m */; };
+		D4DF852B15E90FB5006044F8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4DF852A15E90FB5006044F8 /* Cocoa.framework */; };
+		D4DF853515E90FB5006044F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4DF853315E90FB5006044F8 /* InfoPlist.strings */; };
+		D4DF853715E90FB5006044F8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DF853615E90FB5006044F8 /* main.m */; };
+		D4DF853B15E90FB5006044F8 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D4DF853915E90FB5006044F8 /* Credits.rtf */; };
+		D4DF853E15E90FB5006044F8 /* NDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4DF853D15E90FB5006044F8 /* NDAppDelegate.m */; };
+		D4DF854115E90FB5006044F8 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4DF853F15E90FB5006044F8 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D424BDA615EA2FAC0045DD38 /* test.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test.html; sourceTree = "<group>"; };
+		D424BDA915EA2FCE0045DD38 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		D424BDBE15EA49700045DD38 /* NDWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NDWebView.h; sourceTree = "<group>"; };
+		D424BDBF15EA49700045DD38 /* NDWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NDWebView.m; sourceTree = "<group>"; };
+		D4DF852615E90FB5006044F8 /* NativeDrag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NativeDrag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4DF852A15E90FB5006044F8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D4DF852D15E90FB5006044F8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D4DF852E15E90FB5006044F8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D4DF852F15E90FB5006044F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D4DF853215E90FB5006044F8 /* NativeDrag-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NativeDrag-Info.plist"; sourceTree = "<group>"; };
+		D4DF853415E90FB5006044F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4DF853615E90FB5006044F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4DF853815E90FB5006044F8 /* NativeDrag-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NativeDrag-Prefix.pch"; sourceTree = "<group>"; };
+		D4DF853A15E90FB5006044F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D4DF853C15E90FB5006044F8 /* NDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NDAppDelegate.h; sourceTree = "<group>"; };
+		D4DF853D15E90FB5006044F8 /* NDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NDAppDelegate.m; sourceTree = "<group>"; };
+		D4DF854015E90FB5006044F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4DF852315E90FB5006044F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D424BDAA15EA2FCE0045DD38 /* WebKit.framework in Frameworks */,
+				D4DF852B15E90FB5006044F8 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4DF851B15E90FB4006044F8 = {
+			isa = PBXGroup;
+			children = (
+				D4DF853015E90FB5006044F8 /* NativeDrag */,
+				D4DF852915E90FB5006044F8 /* Frameworks */,
+				D4DF852715E90FB5006044F8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D4DF852715E90FB5006044F8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4DF852615E90FB5006044F8 /* NativeDrag.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4DF852915E90FB5006044F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4DF852A15E90FB5006044F8 /* Cocoa.framework */,
+				D4DF852C15E90FB5006044F8 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4DF852C15E90FB5006044F8 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D424BDA915EA2FCE0045DD38 /* WebKit.framework */,
+				D4DF852D15E90FB5006044F8 /* AppKit.framework */,
+				D4DF852E15E90FB5006044F8 /* CoreData.framework */,
+				D4DF852F15E90FB5006044F8 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D4DF853015E90FB5006044F8 /* NativeDrag */ = {
+			isa = PBXGroup;
+			children = (
+				D4DF853C15E90FB5006044F8 /* NDAppDelegate.h */,
+				D4DF853D15E90FB5006044F8 /* NDAppDelegate.m */,
+				D424BDBE15EA49700045DD38 /* NDWebView.h */,
+				D424BDBF15EA49700045DD38 /* NDWebView.m */,
+				D4DF853F15E90FB5006044F8 /* MainMenu.xib */,
+				D4DF853115E90FB5006044F8 /* Supporting Files */,
+			);
+			path = NativeDrag;
+			sourceTree = "<group>";
+		};
+		D4DF853115E90FB5006044F8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D424BDA615EA2FAC0045DD38 /* test.html */,
+				D4DF853215E90FB5006044F8 /* NativeDrag-Info.plist */,
+				D4DF853315E90FB5006044F8 /* InfoPlist.strings */,
+				D4DF853615E90FB5006044F8 /* main.m */,
+				D4DF853815E90FB5006044F8 /* NativeDrag-Prefix.pch */,
+				D4DF853915E90FB5006044F8 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4DF852515E90FB5006044F8 /* NativeDrag */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4DF854415E90FB5006044F8 /* Build configuration list for PBXNativeTarget "NativeDrag" */;
+			buildPhases = (
+				D4DF852215E90FB5006044F8 /* Sources */,
+				D4DF852315E90FB5006044F8 /* Frameworks */,
+				D4DF852415E90FB5006044F8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NativeDrag;
+			productName = NativeDrag;
+			productReference = D4DF852615E90FB5006044F8 /* NativeDrag.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4DF851D15E90FB4006044F8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = ND;
+				LastUpgradeCheck = 0440;
+				ORGANIZATIONNAME = zonble;
+			};
+			buildConfigurationList = D4DF852015E90FB4006044F8 /* Build configuration list for PBXProject "NativeDrag" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D4DF851B15E90FB4006044F8;
+			productRefGroup = D4DF852715E90FB5006044F8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D4DF852515E90FB5006044F8 /* NativeDrag */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4DF852415E90FB5006044F8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4DF853515E90FB5006044F8 /* InfoPlist.strings in Resources */,
+				D4DF853B15E90FB5006044F8 /* Credits.rtf in Resources */,
+				D4DF854115E90FB5006044F8 /* MainMenu.xib in Resources */,
+				D424BDA715EA2FAC0045DD38 /* test.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4DF852215E90FB5006044F8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4DF853715E90FB5006044F8 /* main.m in Sources */,
+				D4DF853E15E90FB5006044F8 /* NDAppDelegate.m in Sources */,
+				D424BDC015EA49700045DD38 /* NDWebView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D4DF853315E90FB5006044F8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4DF853415E90FB5006044F8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4DF853915E90FB5006044F8 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4DF853A15E90FB5006044F8 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D4DF853F15E90FB5006044F8 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4DF854015E90FB5006044F8 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4DF854215E90FB5006044F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D4DF854315E90FB5006044F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D4DF854515E90FB5006044F8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NativeDrag/NativeDrag-Prefix.pch";
+				INFOPLIST_FILE = "NativeDrag/NativeDrag-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D4DF854615E90FB5006044F8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "NativeDrag/NativeDrag-Prefix.pch";
+				INFOPLIST_FILE = "NativeDrag/NativeDrag-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4DF852015E90FB4006044F8 /* Build configuration list for PBXProject "NativeDrag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4DF854215E90FB5006044F8 /* Debug */,
+				D4DF854315E90FB5006044F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4DF854415E90FB5006044F8 /* Build configuration list for PBXNativeTarget "NativeDrag" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4DF854515E90FB5006044F8 /* Debug */,
+				D4DF854615E90FB5006044F8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D4DF851D15E90FB4006044F8 /* Project object */;
+}

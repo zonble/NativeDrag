@@ -1,0 +1,142 @@
+<html>
+<head>
+	<title>Test</title>
+	<script type="text/javascript" charset="utf-8">
+		window.songObejctType = "net.zonble.songobejct";
+		window.songName = "net.zonble.songname";
+		window.artistName = "net.zonble.artistname";
+		window.albumName = "net.zonble.albumname";
+		window.dragHandler = function() {
+			var handler = {};
+			var dragElement = undefined;
+			handler.dragstart = function(item, event) {
+				var dataTransfer = event.dataTransfer;
+				dataTransfer.clearData();
+				tagItems = item.getElementsByTagName("span");
+				var songName = tagItems[0].innerText;
+				var artistName = tagItems[1].innerText;
+				var albumName = tagItems[2].innerText;
+				dataTransfer.setData(window.songName, songName);
+				dataTransfer.setData(window.artistName, artistName);
+				dataTransfer.setData(window.albumName, albumName);
+				dataTransfer.setData(window.songObejctType, "song");
+				return true;
+			};
+			handler.drag = function() {
+			};
+			handler.dragend = function() {
+			};
+			handler.dragenter = function(item, event) {
+        		event.preventDefault();
+				var dataTransfer = event.dataTransfer;
+				if (dataTransfer.getData(window.songObejctType)) {
+					return true;
+				}
+				return false;
+			};
+			handler.dragover = function(item, event) {
+        		event.preventDefault();
+				var dataTransfer = event.dataTransfer;
+				if (dataTransfer.getData(window.songObejctType)) {
+					dataTransfer.dropEffect  = "copy";
+					return true;
+				}
+				return false;
+			};
+			handler.dragleave = function(item, event) {
+			};
+			handler.dragdrop = function(item, event) {
+				var dataTransfer = event.dataTransfer;
+				if (dataTransfer.getData(window.songObejctType)) {
+					var songName = dataTransfer.getData(window.songName);
+					var artistName = dataTransfer.getData(window.artistName);
+					var albumName = dataTransfer.getData(window.albumName);
+					window.songs[window.songs.length] = {name:songName, artist:artistName, album:albumName};
+					window.updateList();
+					return true;
+				}
+				return false;
+			};
+			return handler;
+		}();
+		window.songs = [
+		{name:"Piano Flow", album:"Piano Album", artist:"Piano Artist"},
+		{name:"Guitar Flow", album:"Guitar Album", artist:"Guitar Artist"},
+		{name:"Cello Flow", album:"Cello Album", artist:"Cello Artist"}
+		];
+		window.updateList = function() {
+			var HTML = "";
+			HTML += "<div class='table_header'><span>Song Name</span><span>Artist Name</span><span>Album Name</span></div>";
+			for (i = 0; i < window.songs.length; i++) {
+				var song = window.songs[i];
+				HTML += "<div class='row' ondragstart='dragHandler.dragstart(this, event);' ondrag='dragHandler.drag();' ondragend='dragHandler.dragend();'><span>" + song["name"] + "</span><span>" + song["artist"] + "</span><span>" + song["album"] + "</span></div>";
+			}
+			document.getElementById("songs").innerHTML = HTML;
+		};
+	</script>
+	<style type="text/css" media="screen">
+		body {
+			font-family: "Helvetica", sans-serif;
+			font-size: 14pt;
+			line-height: 1.4em;
+		}
+		#songs {
+			display:table; 
+			border:1px solid #003399;
+			width: 100%;
+			-webkit-user-drop: element;
+		}
+		#songs .table_header {
+			display:table-caption;
+			font-weight: bold;
+		}
+		#songs .table_header span {
+			width: 200px;
+			display:table-cell;
+		}
+		#songs .row {
+			margin: 0;
+			padding: 0;
+			-webkit-user-drag: element;
+			-webkit-user-select: none;
+		}
+		#songs .row:-webkit-drag  {
+			border: 1px solid #333;
+			color: white;
+			background-color: #AAA;	
+		}
+		#songs .row span {
+			width: 200px;
+			display:table-cell;
+		}
+		
+		#drop {
+			border:1px solid #003399;
+			-webkit-user-drop: element;
+
+			height: 100px;
+			width: 600px;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+
+<body onload="updateList()">
+<h1 id="header">This is just a test</h1>
+
+<div id="songs" ondragenter='dragHandler.dragenter(this, event);'
+ 	ondragover='dragHandler.dragover(this, event);' 
+	ondragleave='dragHandler.dragleave(this, event);'
+	ondrop='dragHandler.dragdrop(this, event);'>
+</div>
+<p>You can also drag songs and drop them into the list!</p>
+	
+<!-- <div id="drop" ondragenter='dragHandler.dragenter(this, event);'
+ 	ondragover='dragHandler.dragover(this, event);' 
+	ondragleave='dragHandler.dragleave(this, event);'
+	ondrop='dragHandler.dragdrop(this, event);'>
+	drop here!
+</div> -->
+
+</body>
+</html>
