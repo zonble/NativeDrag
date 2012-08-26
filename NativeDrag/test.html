@@ -1,5 +1,6 @@
 <html>
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Test</title>
 	<script type="text/javascript" charset="utf-8">
 		window.songObejctType = "net.zonble.songobejct";
@@ -32,6 +33,7 @@
         		event.preventDefault();
 				var dataTransfer = event.dataTransfer;
 				if (dataTransfer.getData(window.songObejctType)) {
+					item.style.backgroundColor = "yellow";
 					return true;
 				}
 				return false;
@@ -41,13 +43,16 @@
 				var dataTransfer = event.dataTransfer;
 				if (dataTransfer.getData(window.songObejctType)) {
 					dataTransfer.dropEffect  = "copy";
+					item.style.backgroundColor = "yellow";
 					return true;
 				}
 				return false;
 			};
 			handler.dragleave = function(item, event) {
+				item.style.backgroundColor = "white";
 			};
 			handler.dragdrop = function(item, event) {
+				item.style.backgroundColor = "white";
 				var dataTransfer = event.dataTransfer;
 				if (dataTransfer.getData(window.songObejctType)) {
 					var songName = dataTransfer.getData(window.songName);
